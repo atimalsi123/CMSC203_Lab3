@@ -1,0 +1,90 @@
+import java.util.Scanner;
+
+public class MovieDriver {
+	public static void main (String[] args) {
+	
+	String ans;
+	
+	do 
+	{
+	Scanner sc = new Scanner (System.in);
+	Movie movie = new Movie ();
+	System.out.println("Enter the title of a movie: ");
+	String movieName = sc.nextLine();
+	movie.setTitle(movieName);
+	System.out.println("Enter the movie's rating: ");
+	String rating = sc.nextLine();
+	movie.setRating(rating);
+	System.out.println("Enter the number of sold at the theater: ");
+	int sold = sc.nextInt();
+	movie.setSoldTickets(sold);
+	System.out.println(movie.toString());
+	sc.nextLine();
+	System.out.println("Do you want to enter another movie? (y or n)");
+	ans = sc.nextLine();
+	}
+	while (ans.equals("y"));
+	
+	System.out.println("Goodbye");
+	}
+	
+}
+public class Movie {
+
+	private String title;
+	private String rating;
+	private int  soldTickets;
+	 
+
+	public  Movie ()
+	{
+		title = "";
+		rating = "";
+		soldTickets = 0;	
+	}
+
+	public  Movie (Movie m)
+	{
+		title = m.title;
+		rating = m.rating;
+		soldTickets = m.soldTickets;	
+	}
+	
+	public Movie(String title, String rating, int soldTickets) {
+	 
+		this.title = title;
+		this.rating = rating;
+		this.soldTickets = soldTickets;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getRating() {
+		return rating;
+	}
+
+	public void setRating(String rating) {
+		this.rating = rating;
+	}
+	
+	public int getSoldTickets() {
+		return soldTickets;
+	}
+
+	public void setSoldTickets(int soldTickets) {
+		this.soldTickets = soldTickets;
+	}	
+	
+	public String toString() {
+		return (this.title+" ("+this.rating+"): Tickets Sold: "+this.soldTickets);
+	}
+	
+	
+}
+
